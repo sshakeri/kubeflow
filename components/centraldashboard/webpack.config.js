@@ -164,6 +164,13 @@ module.exports = {
         new CleanWebpackPlugin([DESTINATION]),
         new CopyWebpackPlugin(POLYFILLS.concat([
             {from: resolve(SRC, 'kubeflow-palette.css'), to: DESTINATION},
+            {from: resolve(SRC, 'vendor.min.css'), to: DESTINATION},
+            {from: resolve(SRC, 'appkit.min.css'), to: DESTINATION},
+            {from: resolve(SRC, 'appkit.min.js'), to: DESTINATION},
+            {from: resolve(SRC, 'vendor.min.js'), to: DESTINATION},
+            {from: resolve(SRC, 'assets/'), to: DESTINATION+'/assets/'},
+            {from: resolve(SRC, 'images/'), to: DESTINATION+'/images/'},
+
         ])),
         new DefinePlugin({
             BUILD_VERSION: JSON.stringify(BUILD_VERSION),
@@ -192,26 +199,26 @@ module.exports = {
         }),
     ],
     devServer: {
-        port: 8080,
+        port: 8380,
         proxy: {
-            '/api': 'http://localhost:8082',
+            '/api': 'http://localhost:8080',
             '/jupyter': {
-                target: 'http://localhost:8083/api/v1/namespaces/kubeflow/services/jupyter-web-app-service:80/proxy',
+                target: 'http://localhost:8080/api/v1/namespaces/kubeflow/services/jupyter-web-app-service:80/proxy',
                 pathRewrite: {'^/jupyter': ''},
             },
             '/metadata': {
-                target: 'http://localhost:8083/api/v1/namespaces/kubeflow/services/metadata-ui:80/proxy',
+                target: 'http://localhost:8080/api/v1/namespaces/kubeflow/services/metadata-ui:80/proxy',
                 pathRewrite: {'^/metadata': ''},
             },
             '/notebook': {
-                target: 'http://localhost:8083/api/v1/namespaces/',
+                target: 'http://localhost:8080/api/v1/namespaces/',
                 pathRewrite: {
                     '^/notebook/(.*?)/(.*?)/(.*)':
                         '/$1/services/$2/proxy/notebook/$1/$2/$3',
                 },
             },
             '/pipeline': {
-                target: 'http://localhost:8083/api/v1/namespaces/kubeflow/services/ml-pipeline-ui:80/proxy',
+                target: 'http://localhost:8080/api/v1/namespaces/kubeflow/services/ml-pipeline-ui:80/proxy',
                 pathRewrite: {'^/pipeline': ''},
             },
         },

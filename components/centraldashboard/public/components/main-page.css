@@ -4,8 +4,8 @@
 
 :host {
     @apply --layout-vertical;
-    --accent-color: #007dfc;
-    --primary-background-color: #0a3b71;
+    --accent-color: #d04a02;
+    --primary-background-color: #fff;
     --sidebar-default-color: rgba(255, 255, 255, 0.5);
     --divider-color: #dadce0;
     --border-color: #eeeeef;
@@ -23,7 +23,7 @@
 }
 
 #MainDrawer {
-    color: white;
+    color:#9e9e9e;
     --app-drawer-content-container: {
         background: var(--primary-background-color) !important;
         display: flex !important;
@@ -32,7 +32,7 @@
 }
 
 app-drawer-layout {
-    --app-drawer-width: 240px;
+    --app-drawer-width: 5.375rem
 }
 
 app-drawer-layout[narrow] #MainDrawer {
@@ -76,12 +76,14 @@ app-drawer-layout[bleed] #MainDrawer {
 }
 
 #MainDrawer .menu-item {
-    color: var(--sidebar-default-color);
+    color: #9e9e9e;
     cursor: pointer;
-    font-family: Google Sans;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     font-weight: 500;
     letter-spacing: 0.3px;
+    height:4.375rem;
+    width:5.375rem;
     line-height: 24px;
     margin: .5em 0;
     transition: background .25s;
@@ -100,7 +102,8 @@ app-drawer-layout[bleed] #MainDrawer {
 }
 
 #MainDrawer .iron-selected>.menu-item {
-    color: #fff;
+    color:#fff;
+    background:#d04a02;
 }
 
 #MainDrawer .iron-selected>.menu-item::after {
@@ -111,7 +114,7 @@ app-drawer-layout[bleed] #MainDrawer {
     bottom: 0;
     left: 0;
     width: 3px;
-    background: white;
+    background:#d04a02;
 }
 
 #MainDrawer .footer {
@@ -207,16 +210,18 @@ paper-tab[link] a:hover {
 
 app-header {
     box-shadow: 0 2px 6px 1px rgba(232, 234, 237, 0.5), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    margin-top: 55px
+
 }
 
 app-header-layout {
     @apply --layout-vertical
 }
-
+html, body {margin:0;padding:0;height:100%;}
 #Content {
     @apply --layout-vertical;
     background: #f1f3f4;
-    height: 100%;
+     height:700px;
 }
 
 neon-animated-pages {
@@ -246,12 +251,18 @@ neon-animatable {
         height: 44px;
         color: var(--primary-background-color);
     }
+
+}
+#MainDrawer{
+    margin-top: 50px
+
 }
 
 #MainDrawer .menu-item iron-icon.external {
     width: .75em;
     transform: translateY(-25%);
     margin-left: .25em;
+
 }
 
 #MainDrawer .footer .bullet {
@@ -306,6 +317,6 @@ a[href] {
 }
 
 a[href]:hover, iframe-link:hover {
-    color: var(--paper-blue-700);
+    color:  #d04a02;
     text-decoration: underline;
 }

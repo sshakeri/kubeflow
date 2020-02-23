@@ -249,7 +249,7 @@ export class MainPage extends utilitiesMixin(PolymerElement) {
      * hash fragment, and the query string parameters other than ns.
      */
     _setIframeSrc() {
-        const iframeUrl = new URL(this.subRouteData.path,
+        const iframeUrl = new URL('http://localhost:8080/',
             window.location.origin);
         iframeUrl.hash = window.location.hash;
         iframeUrl.search = window.location.search;
