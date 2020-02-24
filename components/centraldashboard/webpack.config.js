@@ -199,7 +199,7 @@ module.exports = {
         }),
     ],
     devServer: {
-        port: 8380,
+        port: 8080,
         proxy: {
             '/api': 'http://localhost:8080',
             '/jupyter': {
@@ -220,6 +220,10 @@ module.exports = {
             '/pipeline': {
                 target: 'http://localhost:8080/api/v1/namespaces/kubeflow/services/ml-pipeline-ui:80/proxy',
                 pathRewrite: {'^/pipeline': ''},
+            },
+            '/monitor': {
+                target: 'http://127.0.0.1:4040/',
+                pathRewrite: {'^/monitor': ''},
             },
         },
         historyApiFallback: {

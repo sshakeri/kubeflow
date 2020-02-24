@@ -67,6 +67,10 @@ export class MainPage extends utilitiesMixin(PolymerElement) {
                 type: Array,
                 value: [
                     {
+                        link: '/monitor/',
+                        text: 'Monitor',
+                    },
+                    {
                         link: '/pipeline/',
                         text: 'Pipelines',
                     },
@@ -205,7 +209,7 @@ export class MainPage extends utilitiesMixin(PolymerElement) {
             isIframe = true;
             hideNamespaces = false;
             this._setActiveMenuLink(this.subRouteData.path);
-            this._setIframeSrc();
+            // this._setIframeSrc();
             break;
         case 'manage-users':
             this.sidebarItemIndex = 6;

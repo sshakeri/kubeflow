@@ -58,7 +58,8 @@ export default (superClass) => class extends superClass {
      * @return {string}
      */
     buildHref(href, queryParams) {
-        const url = new URL(href, window.location.origin);
+        const absolute = href.includes('http');
+        const url=new URL(href, window.location.href);
         if (queryParams) {
             VALID_QUERY_PARAMS.forEach((qp) => {
                 if (queryParams[qp]) {
@@ -66,7 +67,7 @@ export default (superClass) => class extends superClass {
                 }
             });
         }
-        return url.href.slice(url.origin.length);
+        return absolute?href: url.href.slice(url.origin.length);
     }
 
     /**
