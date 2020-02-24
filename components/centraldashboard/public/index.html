@@ -1,128 +1,38 @@
-﻿<!DOCTYPE html>
-<html>      
+<!doctype html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Insights Platform 4.0</title>
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
-    <link rel="shortcut icon" href="assets/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="vendor.min.css?">
-    <link rel="stylesheet" type="text/css" href="appkit.min.css?">
-    <script src="webcomponentsjs/webcomponents-loader.js"></script> 
-    <script src="webcomponentsjs/custom-elements-es5-adapter.js"></script>
+    <meta name="description" content="Kubeflow Central Dashboard">
+    <meta name="theme-color" content="#3f51b5">
 
-    <!-- Use cdn assets -->
-    <!-- <link rel="stylesheet" href="https://pwcappkit-static.azureedge.net/cdn/release/3.0.0/vendor.min.css"> -->
-    <!-- <link rel="stylesheet" href="https://pwcappkit-static.azureedge.net/cdn/release/3.0.0/appkit.min.css"> -->
+    <title>Insights Platform 4.0</title>
+
+    <link rel="shortcut icon" href="assets/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/favicon-152x152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="/assets/favicon-180x180.png" sizes="180x180">
+
+    <base href="/">
+
+    <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
+    <script src="webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="webcomponentsjs/custom-elements-es5-adapter.js"></script>
 </head>
 
-<style>
-    .no-outline :focus,
-    .no-outline a:focus {
-        outline: none;
-    }
-
-    body {
-        min-width: 480px;
-        overflow-x: auto;
-    }
-
-    body:not(.no-outline) li.navigation-list-item:focus {
-        width: calc(4.375rem - 5px);
-        margin-left: 2.4px;
-    }
-
-    .a-header {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-    }
-
-    .a-navigation {
-        position: fixed;
-        top: 50px;
-        height: calc(100vh - 50px);
-        display: inline-block;
-        z-index: 1;
-        overflow-y: auto;
-    }
-
-    .a-template-content {
-        display: block;
-        position: relative;
-        min-height: calc(100vh - 90px);
-        width: calc(100% - 72px);
-        left: 72px;
-    }
-
-    .footer-wrapper {
-        padding: 10px 10px 10px 70px;
-        position: relative;
-    }
-
-    @media all and (-ms-high-contrast: none),
-    (-ms-high-contrast: active) {
-        .a-header {
-            position: fixed;
-        }
-
-        .a-template-content {
-            padding-top: 3.125rem;
-            transition-duration: 1s;
-            min-height: calc(100vh - 40px);
-        }
-    }
-</style>
-
-<body class="no-outline">
- <main-page class="a-bg-f5f">
-
+<body>
+    <main-page>
     </main-page>
-
+            <div class="footer-wrapper flex-shrink-0 text-center a-bg-f5f">
+            <div class="a-footer">© 2020 PwC. PwC refers to the PwC network and/or one or more of its member
+                firms,
+                each of which is a separate legal entity. Please see www.pwc.com/structure for further details.
+            </div>
+        </div>
+    <noscript>
+        Please enable JavaScript to view this website.
+    </noscript>
 </body>
-<script type="text/javascript" src="vendor.min.js"></script>
-<script type="text/javascript" src="appkit.min.js"></script>
-
-<!-- Use cdn assets -->
-<!-- <script src="https://pwcappkit-static.azureedge.net/cdn/release/3.0.0/vendor.min.js"></script> -->
-<!-- <script src="https://pwcappkit-static.azureedge.net/cdn/release/3.0.0/appkit.min.js"></script> -->
-<script>
-    "use strict";
-    $(document).ready(function () {
-        // Change active status of left navbar
-        $(document).on("click", ".navigation-list-item", function (event) {
-            event.stopPropagation();
-            var target = $(event.target).closest(".navigation-list-item");
-            if (!target.hasClass("active")) {
-                target.siblings(".navigation-list-item").removeClass("active");
-                target.addClass("active");
-            }
-        })
-            .on('keyup', ".navigation-list-item", e => {
-                e.stopPropagation();
-                var keyvalue = e.which;
-                if (keyvalue == 13) {
-                    $(e.target).trigger('click');
-                }
-            })
-        $('.a-logout, .a-nav-toggler').on('show.bs.dropdown', function () {
-            $(".a-dropdown").dropdown("hide")
-        });
-
-        document.addEventListener('mousedown', function () {
-            $("body").addClass("no-outline");
-        });
-
-        document.addEventListener("keydown", function (event) {
-            const keycode = window.event ? event.keyCode : event.which;
-            if (keycode === 9) {
-                $("body").removeClass("no-outline");
-            }
-        }, true)
-    });
-
-</script>
 
 </html>
