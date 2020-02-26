@@ -19,7 +19,8 @@ app-drawer-layout.flex(narrow='{{narrowMode}}',
                 paper-item.menu-item Overview
             iframe-link(href$="[[buildHref('http://127.0.0.1:4040/', queryParams)]]")
                     paper-item.menu-item Monitor
- 
+            iframe-link(href$="[[buildHref('http://127.0.0.1:8087/', queryParams)]]")
+                    paper-item.menu-item CI/CD
 
             span(class="appkiticon icon-like-outline a-font-40 a-text-green" aria-hidden="true" style="left:200px")
 

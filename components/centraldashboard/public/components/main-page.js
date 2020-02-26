@@ -222,7 +222,7 @@ export class MainPage extends utilitiesMixin(PolymerElement) {
         default:
             hideTabs = false;
             this.page = 'iframe';
-            isIframe = false;
+            isIframe = true;
             hideNamespaces = false;
             this._setActiveMenuLink(newPage);
             this._setIframeSrc();
