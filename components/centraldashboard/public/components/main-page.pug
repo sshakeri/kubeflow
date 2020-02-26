@@ -17,11 +17,19 @@ app-drawer-layout.flex(narrow='{{narrowMode}}',
         iron-selector.flex(selected='{{sidebarItemIndex}}')
             a(href$='[[buildHref("/", queryParams)]]', tabindex='-1')
                 paper-item.menu-item Overview
+            iframe-link(href="wwww.google.com")
+                    paper-item.menu-item OK
+            a(href$='[[buildHref("/monitor/", queryParams)]]', tabindex='-1')
+                    paper-item.menu-item Wow
+
+        
+
             span(class="appkiticon icon-like-outline a-font-40 a-text-green" aria-hidden="true" style="left:200px")
 
             template(is='dom-repeat', items='[[menuLinks]]')
                 iframe-link(href$="[[buildHref(item.link, queryParams)]]")
                     paper-item.menu-item [[item.text]]
+
             template(is='dom-if', if='[[equals(isolationMode, "multi-user")]]')
                 aside.divider
                 a(href$='[[buildHref("/manage-users", queryParams)]]', tabindex='-1')

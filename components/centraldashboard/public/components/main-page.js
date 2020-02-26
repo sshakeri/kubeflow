@@ -67,10 +67,6 @@ export class MainPage extends utilitiesMixin(PolymerElement) {
                 type: Array,
                 value: [
                     {
-                        link: '/monitor/',
-                        text: 'Monitor',
-                    },
-                    {
                         link: '/pipeline/',
                         text: 'Pipelines',
                     },
@@ -209,7 +205,7 @@ export class MainPage extends utilitiesMixin(PolymerElement) {
             isIframe = true;
             hideNamespaces = false;
             this._setActiveMenuLink(this.subRouteData.path);
-            // this._setIframeSrc();
+            this._setIframeSrc();
             break;
         case 'manage-users':
             this.sidebarItemIndex = 6;
@@ -253,7 +249,7 @@ export class MainPage extends utilitiesMixin(PolymerElement) {
      * hash fragment, and the query string parameters other than ns.
      */
     _setIframeSrc() {
-        const iframeUrl = new URL('http://localhost:8080/',
+        const iframeUrl = new URL(this.subRouteData.path,
             window.location.origin);
         iframeUrl.hash = window.location.hash;
         iframeUrl.search = window.location.search;
