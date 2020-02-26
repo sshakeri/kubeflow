@@ -17,12 +17,9 @@ app-drawer-layout.flex(narrow='{{narrowMode}}',
         iron-selector.flex(selected='{{sidebarItemIndex}}')
             a(href$='[[buildHref("/", queryParams)]]', tabindex='-1')
                 paper-item.menu-item Overview
-            iframe-link(href="wwww.google.com")
-                    paper-item.menu-item OK
-            a(href$='[[buildHref("/monitor/", queryParams)]]', tabindex='-1')
-                    paper-item.menu-item Wow
-
-        
+            iframe-link(href$="[[buildHref('http://127.0.0.1:4040/', queryParams)]]")
+                    paper-item.menu-item Monitor
+ 
 
             span(class="appkiticon icon-like-outline a-font-40 a-text-green" aria-hidden="true" style="left:200px")
 

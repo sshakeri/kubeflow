@@ -188,7 +188,7 @@ export class MainPage extends utilitiesMixin(PolymerElement) {
      */
     _routePageChanged(newPage) {
         let isIframe = false;
-        let notFoundInIframe = false;
+        const notFoundInIframe = false;
         let hideTabs = true;
         let hideNamespaces = false;
         let allNamespaces = false;
@@ -220,12 +220,20 @@ export class MainPage extends utilitiesMixin(PolymerElement) {
             hideTabs = false;
             break;
         default:
-            this.sidebarItemIndex = -1;
-            this.page = 'not_found';
+            hideTabs = false;
+            this.page = 'iframe';
+            isIframe = false;
+            hideNamespaces = false;
+            this._setActiveMenuLink(newPage);
+            this._setIframeSrc();
+            // this.sidebarItemIndex = -1;
+            // this.page = 'not_found';
+            // hideTabs = false;
+            // this.iframeSrc=newPage;
             // Handles case when an iframed page requests an invalid route
-            if (this._isInsideOfIframe()) {
-                notFoundInIframe = true;
-            }
+            // if (this._isInsideOfIframe()) {
+            //     notFoundInIframe = true;
+            // }
         }
         this._setNotFoundInIframe(notFoundInIframe);
         this._setHideTabs(hideTabs);
@@ -255,6 +263,7 @@ export class MainPage extends utilitiesMixin(PolymerElement) {
         iframeUrl.search = window.location.search;
         iframeUrl.searchParams.delete('ns');
         this.iframeSrc = iframeUrl.toString();
+        // this.iframeSrc='http://127.0.0.1:4040/#!/state/{%22nodeDetails%22:[{%22id%22:%22service-insightsg2.dfs.core.windows.net%22,%22topologyId%22:%22pods%22}],%22pinnedMetricType%22:%22CPU%22,%22selectedNodeId%22:%22service-insightsg2.dfs.core.windows.net%22,%22topologyId%22:%22pods%22,%22topologyOptions%22:{%22containers%22:{%22namespace%22:[%22kubeflow-anonymous%22]},%22pods%22:{%22namespace%22:[%22default%22,%22workloads%22,%22kubeflow-anonymous%22,%22projects%22]}}}';
     }
 
     /**
@@ -262,8 +271,13 @@ export class MainPage extends utilitiesMixin(PolymerElement) {
      * @param {string} newPage - iframe page path
      */
     _iframePageChanged(newPage) {
-        window.history.replaceState(null, null,
-            `/${IFRAME_LINK_PREFIX}${newPage}`);
+        if (!newPage.includes('http')) {
+            window.history.replaceState(null, null,
+                `/${IFRAME_LINK_PREFIX}${newPage}`);
+        } else {
+            window.history.replaceState(null, null,
+                `/`);
+        }
     }
 
     /**

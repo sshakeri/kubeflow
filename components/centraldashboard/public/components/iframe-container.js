@@ -79,9 +79,9 @@ export class IframeContainer extends PolymerElement {
      */
     _srcChanged(newSrc) {
         const iframe = this.$.iframe;
-        if (iframe.contentWindow.location.toString() !== newSrc) {
-            iframe.contentWindow.location.replace(newSrc);
-        }
+        // if (iframe.contentWindow.location.toString() !== newSrc) {
+        iframe.contentWindow.location.replace(newSrc);
+        // }
     }
 
     /**

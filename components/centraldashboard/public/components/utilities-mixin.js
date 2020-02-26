@@ -58,6 +58,9 @@ export default (superClass) => class extends superClass {
      * @return {string}
      */
     buildHref(href, queryParams) {
+        if (href.includes('http')) {
+            return href;
+        }
         const url = new URL(href, window.location.origin);
         if (queryParams) {
             VALID_QUERY_PARAMS.forEach((qp) => {
