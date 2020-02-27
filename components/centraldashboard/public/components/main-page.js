@@ -66,22 +66,23 @@ export class MainPage extends utilitiesMixin(PolymerElement) {
             menuLinks: {
                 type: Array,
                 value: [
-                    {
-                        link: '/pipeline/',
-                        text: 'Pipelines',
-                    },
+
                     {
                         link: '/jupyter/',
-                        text: 'Notebook Servers',
+                        text: 'Code',
                     },
                     {
-                        link: '/katib/',
-                        text: 'Katib',
+                        link: '/pipeline/',
+                        text: 'Run',
                     },
-                    {
-                        link: '/metadata/',
-                        text: 'Artifact Store',
-                    },
+                    // {
+                    //     link: '/katib/',
+                    //     text: 'Katib',
+                    // },
+                    // {
+                    //     link: '/metadata/',
+                    //     text: 'Artifact Store',
+                    // },
                 ],
             },
             sidebarItemIndex: {

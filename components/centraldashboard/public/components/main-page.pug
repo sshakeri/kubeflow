@@ -21,23 +21,27 @@ app-drawer-layout.flex(narrow='{{narrowMode}}',
                     paper-item.menu-item Monitor
             iframe-link(href$="[[buildHref('http://127.0.0.1:8087/', queryParams)]]")
                     paper-item.menu-item CI/CD
-
-            span(class="appkiticon icon-like-outline a-font-40 a-text-green" aria-hidden="true" style="left:200px")
-
             template(is='dom-repeat', items='[[menuLinks]]')
                 iframe-link(href$="[[buildHref(item.link, queryParams)]]")
                     paper-item.menu-item [[item.text]]
-
             template(is='dom-if', if='[[equals(isolationMode, "multi-user")]]')
                 aside.divider
                 a(href$='[[buildHref("/manage-users", queryParams)]]', tabindex='-1')
                     paper-item.menu-item Manage Contributors
             aside.divider
-            a(href='https://github.com/kubeflow/kubeflow',
+            a(href='https://portal.azure.com/#@PwC.onmicrosoft.com/resource/subscriptions/1db34894-a364-4729-b22a-b634ccfa26df/resourceGroups/insightsplatform-cdh/providers/Microsoft.Storage/storageAccounts/insightsadlsg2p/storageexplorer',
+                tabindex='-1', target="_blank")
+                paper-item.menu-item Data
+                    iron-icon.external(icon="launch")
+            a(href='https://insightsds.pwc.com:9047/',
+                tabindex='-1', target="_blank")
+                paper-item.menu-item Dremio
+                    iron-icon.external(icon="launch")
+            a(href='https://pwc.github.com',
                 tabindex='-1', target="_blank")
                 paper-item.menu-item GitHub
                     iron-icon.external(icon="launch")
-            a(href='https://www.kubeflow.org/docs/about/kubeflow/',
+            a(href='https://docs.google.com/document/d/1vTO2vwxRATSNFOSn_Pq5zE6RdPi5M3Kv2R_q-bQyVkU/edit',
                 tabindex='-1', target="_blank")
                 paper-item.menu-item Docs
                     iron-icon.external(icon="launch")
