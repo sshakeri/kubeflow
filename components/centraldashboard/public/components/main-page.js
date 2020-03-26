@@ -69,12 +69,14 @@ export class MainPage extends utilitiesMixin(PolymerElement) {
 
                     {
                         link: '/jupyter/',
-                        text: 'Code',
+                        text: 'Servers',
                     },
+
                     {
                         link: '/pipeline/',
                         text: 'Run',
                     },
+
                     // {
                     //     link: '/katib/',
                     //     text: 'Katib',
