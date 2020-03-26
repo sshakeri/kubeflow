@@ -19,6 +19,7 @@ ENV NB_USER $NB_USER
 ENV NB_UID 1000
 ENV HOME /home/$NB_USER
 ENV NB_PREFIX /
+ENV PATH $HOME/.local/bin:$PATH
 
 
 # Use bash instead of sh
@@ -67,6 +68,13 @@ RUN curl -LO https://github.com/GoogleCloudPlatform/docker-credential-gcr/releas
 RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "/tmp/awscli-bundle.zip" && \
     unzip /tmp/awscli-bundle.zip && ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws && \
     rm -rf ./awscli-bundle
+
+# Install Azure CLI
+RUN curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | tee /etc/apt/trusted.gpg.d/microsoft.asc.gpg > /dev/null && \
+    AZ_REPO=$(lsb_release -cs) && \
+    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | tee /etc/apt/sources.list.d/azure-cli.list && \
+    apt-get update && \
+    apt-get install azure-cli
 
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen
