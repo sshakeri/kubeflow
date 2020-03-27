@@ -21,8 +21,8 @@ app-drawer-layout.flex(narrow='{{narrowMode}}',
                     paper-item.menu-item Monitor
             iframe-link(href$="[[buildHref('http://127.0.0.1:8087/', queryParams)]]")
                     paper-item.menu-item CI/CD
-            iframe-link(href$="[[buildHref('http://127.0.0.1:8080/notebook/projects/workbench/lab', queryParams)]]")
-                    paper-item.menu-item Lab
+            //- iframe-link(href$="[[buildHref('/notebook/projects/workbench-gpu/lab', queryParams)]]")
+            //-         paper-item.menu-item Lab
             template(is='dom-repeat', items='[[menuLinks]]')
                 iframe-link(href$="[[buildHref(item.link, queryParams)]]")
                     paper-item.menu-item [[item.text]]

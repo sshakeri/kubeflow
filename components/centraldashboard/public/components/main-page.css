@@ -220,7 +220,7 @@ html, body {margin:0;padding:0;height:100%;}
 #Content {
     @apply --layout-vertical;
     background: #f1f3f4;
-     height:700px;
+     height:100vh;
 }
 
 neon-animated-pages {
