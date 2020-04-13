@@ -17,10 +17,10 @@ app-drawer-layout.flex(narrow='{{narrowMode}}',
         iron-selector.flex(selected='{{sidebarItemIndex}}')
             a(href$='[[buildHref("/", queryParams)]]', tabindex='-1')
                 paper-item.menu-item Overview
-            iframe-link(href$="[[buildHref('http://127.0.0.1:4040/', queryParams)]]")
-                    paper-item.menu-item Monitor
-            iframe-link(href$="[[buildHref('http://127.0.0.1:8087/', queryParams)]]")
-                    paper-item.menu-item CI/CD
+            //- iframe-link(href$="[[buildHref('http://127.0.0.1:4040/', queryParams)]]")
+            //-         paper-item.menu-item Monitor
+            //- iframe-link(href$="[[buildHref('http://127.0.0.1:8087/', queryParams)]]")
+            //-         paper-item.menu-item CI/CD
             //- iframe-link(href$="[[buildHref('/notebook/projects/workbench-gpu/lab', queryParams)]]")
             //-         paper-item.menu-item Lab
             template(is='dom-repeat', items='[[menuLinks]]')
@@ -39,7 +39,7 @@ app-drawer-layout.flex(narrow='{{narrowMode}}',
                 tabindex='-1', target="_blank")
                 paper-item.menu-item Dremio
                     iron-icon.external(icon="launch")
-            a(href='https://pwc.github.com',
+            a(href='https://github.pwc.com/',
                 tabindex='-1', target="_blank")
                 paper-item.menu-item GitHub
                     iron-icon.external(icon="launch")
